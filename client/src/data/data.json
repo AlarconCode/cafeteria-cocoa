@@ -1,0 +1,422 @@
+[
+    {
+        "cat": "Desayunos",
+        "desc": "Café + Tostada con queso y tomate",
+        "ingredientes": "",
+        "price": "4.00 €"
+    },
+    {
+        "cat": "Desayunos",
+        "desc": "Café + Tostada de salmón + Guacamole o queso",
+        "ingredientes": "",
+        "price": "4.50 €"
+    },
+    {
+        "cat": "Desayunos",
+        "desc": "Café + Tostada de Jamón ibérico",
+        "ingredientes": "",
+        "price": "4.00 €"
+    },
+    {
+        "cat": "Desayunos",
+        "desc": "Café + Zumo o refresco + Tostada de jamón, salmón o queso",
+        "ingredientes": "",
+        "price": "6.00 €"
+    },
+    {
+        "cat": "Desayunos",
+        "desc": "Capuccino + Zumo + Tostada",
+        "ingredientes": "",
+        "price": "5.00 €"
+    },
+    {
+        "cat": "Desayunos",
+        "desc": "Capuccino + Tostada de jamón, salmón o queso",
+        "ingredientes": "",
+        "price": "5.00 €"
+    },
+    {
+        "cat": "Desayunos",
+        "desc": "Capuccino  + Zumo o refresco + Tostada de jamón, salmón o queso",
+        "ingredientes": "",
+        "price": "6.50 €"
+    },
+    {
+        "cat": "Desayunos",
+        "desc": "Botellín + Pincho de tortilla",
+        "ingredientes": "",
+        "price": "3.80 €"
+    },
+    {
+        "cat": "Desayunos",
+        "desc": "Botellín + Tostada de jamón, salmón o queso",
+        "ingredientes": "",
+        "price": "4.20 €"
+    },
+    {
+        "cat": "Desayunos",
+        "desc": "Café + Tostada con queso y tomate",
+        "ingredientes": "",
+        "price": "4.00 €"
+    },
+    {
+        "cat": "Desayunos",
+        "desc": "Café + Tostada de salmón + Guacamole o queso",
+        "ingredientes": "",
+        "price": "4.50 €"
+    },
+    {
+        "cat": "Desayunos",
+        "desc": "Café + Tostada de Jamón ibérico",
+        "ingredientes": "",
+        "price": "4.00 €"
+    },
+    {
+        "cat": "Desayunos",
+        "desc": "Café + Zumo o refresco + Tostada de jamón, salmón o queso",
+        "ingredientes": "",
+        "price": "6.00 €"
+    },
+    {
+        "cat": "Desayunos",
+        "desc": "Café capuccino + Tostada",
+        "ingredientes": "",
+        "price": "4.00 €"
+    },
+    {
+        "cat": "Desayunos",
+        "desc": "Capuccino + Zumo + Tostada",
+        "ingredientes": "",
+        "price": "5.00 €"
+    },
+    {
+        "cat": "Desayunos",
+        "desc": "Capuccino + Tostada de jamón, salmón o queso",
+        "ingredientes": "",
+        "price": "5.00 €"
+    },
+    {
+        "cat": "Desayunos",
+        "desc": "Capuccino  + Zumo o refresco + Tostada de jamón, salmón o queso",
+        "ingredientes": "",
+        "price": "6.50 €"
+    },
+    {
+        "cat": "Desayunos",
+        "desc": "Botellín + Pincho de tortilla",
+        "ingredientes": "",
+        "price": "3.80 €"
+    },
+    {
+        "cat": "Desayunos",
+        "desc": "Botellín + Tostada de jamón, salmón o queso",
+        "ingredientes": "",
+        "price": "4.20 €"
+    },
+    {
+        "cat": "cafes",
+        "desc": "Café Cocoa",
+        "ingredientes": "",
+        "price": "2.50 €"
+    },
+    {
+        "cat": "cafes",
+        "desc": "Café Americano",
+        "ingredientes": "",
+        "price": "1.60 €"
+    },
+    {
+        "cat": "cafes",
+        "desc": "Café con leche",
+        "ingredientes": "",
+        "price": "1.60 €"
+    },
+    {
+        "cat": "cafes",
+        "desc": "Café cortado",
+        "ingredientes": "",
+        "price": "1.60 €"
+    },
+    {
+        "cat": "cafes",
+        "desc": "Café solo",
+        "ingredientes": "",
+        "price": "1.60 €"
+    },
+    {
+        "cat": "cafes",
+        "desc": "Capuccino",
+        "ingredientes": "",
+        "price": "2.50 €"
+    },
+    {
+        "cat": "cafes",
+        "desc": "Café descafeinado",
+        "ingredientes": "",
+        "price": "1.60 €"
+    },
+    {
+        "cat": "cafes",
+        "desc": "Café Bombón",
+        "ingredientes": "",
+        "price": "1.70 €"
+    },
+    {
+        "cat": "cafes",
+        "desc": "Café Irlandés",
+        "ingredientes": "",
+        "price": "5.50 €"
+    },
+    {
+        "cat": "cafes",
+        "desc": "Manzanilla, Poleo y Té",
+        "ingredientes": "",
+        "price": "1.50 €"
+    },
+    {
+        "cat": "cafes",
+        "desc": "Chocolate",
+        "ingredientes": "",
+        "price": "2.00 €"
+    },
+    {
+        "cat": "cafes",
+        "desc": "Chocolate negro con nata",
+        "ingredientes": "",
+        "price": "2.50 €"
+    },
+    {
+        "cat": "cafes",
+        "desc": "Carajillo",
+        "ingredientes": "",
+        "price": "2.00 €"
+    },
+    {
+        "cat": "cafes",
+        "desc": "Cola Cao",
+        "ingredientes": "",
+        "price": "1.60 €"
+    },
+    {
+        "cat": "cafes",
+        "desc": "Zumo",
+        "ingredientes": "",
+        "price": "2.50 €"
+    },
+    {
+        "cat": "Repostería Casera",
+        "desc": "Rosquillas",
+        "ingredientes": "",
+        "price": "0.50 €"
+    },
+    {
+        "cat": "Repostería Casera",
+        "desc": "Bizcocho de limón o naranja",
+        "ingredientes": "(Huevos, azúcar, harina de trigo, yogur de limón, levadura, limón rayado)",
+        "price": "2.50 €"
+    },
+    {
+        "cat": "Repostería Casera",
+        "desc": "Bizcocho de nocilla con soja",
+        "ingredientes": "",
+        "price": "3.00 €"
+    },
+    {
+        "cat": "Repostería Casera",
+        "desc": "Tarta de queso",
+        "ingredientes": "(Huevos, leche condensada y queso)",
+        "price": "3.00 €"
+    },
+    {
+        "cat": "Comidas",
+        "desc": "Croissant mixto",
+        "ingredientes": "",
+        "price": "3.50 €"
+    },
+    {
+        "cat": "Comidas",
+        "desc": "Croissant con queso manchego y tomate",
+        "ingredientes": "",
+        "price": "4.00 €"
+    },
+    {
+        "cat": "Comidas",
+        "desc": "Croissant con salmón y guacamole",
+        "ingredientes": "",
+        "price": "4.00 €"
+    },
+    {
+        "cat": "Comidas",
+        "desc": "Croissant con jamón y tomate",
+        "ingredientes": "",
+        "price": "4.00 €"
+    },
+    {
+        "cat": "Comidas",
+        "desc": "Sandwich mixto",
+        "ingredientes": "",
+        "price": "3.00 €"
+    },
+    {
+        "cat": "Comidas",
+        "desc": "Bocadillos",
+        "ingredientes": "",
+        "price": "5.00 €"
+    },
+    {
+        "cat": "Comidas",
+        "desc": "Montados",
+        "ingredientes": "",
+        "price": "3.00 €"
+    },
+    {
+        "cat": "Comidas",
+        "desc": "Pulgas",
+        "ingredientes": "",
+        "price": "2.00 €"
+    },
+    {
+        "cat": "Comidas",
+        "desc": "Pincho de tortilla",
+        "ingredientes": "",
+        "price": "2.50 €"
+    },
+    {
+        "cat": "Comidas",
+        "desc": "Tostada de pan",
+        "ingredientes": "",
+        "price": "1.80 €"
+    },
+    {
+        "cat": "Comidas",
+        "desc": "Tostada de bimbo",
+        "ingredientes": "",
+        "price": "1.60 €"
+    },
+    {
+        "cat": "Comidas",
+        "desc": "Croissant",
+        "ingredientes": "",
+        "price": "2.00 €"
+    },
+    {
+        "cat": "Comidas",
+        "desc": "Churro o Porra",
+        "ingredientes": "",
+        "price": "0.50 €"
+    },
+    {
+        "cat": "Comidas",
+        "desc": "Bollería",
+        "ingredientes": "",
+        "price": "2.00 €"
+    },
+    {
+        "cat": "Comidas",
+        "desc": "Bizcocho entero, tamaño pequeño",
+        "ingredientes": "",
+        "price": "12.00 €"
+    },
+    {
+        "cat": "Comidas",
+        "desc": "Bizcocho entero, tamaño grande",
+        "ingredientes": "",
+        "price": "15.00 €"
+    },
+    {
+        "cat": "Comidas",
+        "desc": "Tortilla completa (por encargo)",
+        "ingredientes": "",
+        "price": "15.00 €"
+    },
+    {
+        "cat": "Comidas",
+        "desc": "Pan",
+        "ingredientes": "",
+        "price": "1.00 €"
+    },
+    {
+        "cat": "Bebidas",
+        "desc": "Botellín",
+        "ingredientes": "",
+        "price": "1.90 €"
+    },
+    {
+        "cat": "Bebidas",
+        "desc": "Tercio",
+        "ingredientes": "",
+        "price": "3.00 €"
+    },
+    {
+        "cat": "Bebidas",
+        "desc": "Refrescos",
+        "ingredientes": "",
+        "price": "2.50 €"
+    },
+    {
+        "cat": "Bebidas",
+        "desc": "Agua con gas",
+        "ingredientes": "",
+        "price": "2.50 €"
+    },
+    {
+        "cat": "Bebidas",
+        "desc": "Botella de agua",
+        "ingredientes": "",
+        "price": "1.30 €"
+    },
+    {
+        "cat": "Bebidas",
+        "desc": "Batido de Chocolate",
+        "ingredientes": "",
+        "price": "2.50 €"
+    },
+    {
+        "cat": "Bebidas",
+        "desc": "Vino Blanco",
+        "ingredientes": "",
+        "price": "2.00 €"
+    },
+    {
+        "cat": "Bebidas",
+        "desc": "Vino Tinto",
+        "ingredientes": "",
+        "price": "2.00 €"
+    },
+    {
+        "cat": "Bebidas",
+        "desc": "Copa de anís o soberano",
+        "ingredientes": "",
+        "price": "2.50 €"
+    },
+    {
+        "cat": "Bebidas",
+        "desc": "Copa Licor de Hierbas / Limonchelo",
+        "ingredientes": "",
+        "price": "2.50 €"
+    },
+    {
+        "cat": "Bebidas",
+        "desc": "Chupito Licor de Hierbas / Limonchelo",
+        "ingredientes": "",
+        "price": "2.00 €"
+    },
+    {
+        "cat": "Bebidas",
+        "desc": "Copa Nacional",
+        "ingredientes": "",
+        "price": "5.00 €"
+    },
+    {
+        "cat": "Bebidas",
+        "desc": "Copa Importación",
+        "ingredientes": "",
+        "price": "5.50 €"
+    },
+    {
+        "cat": "Bebidas",
+        "desc": "Copa Premium",
+        "ingredientes": "",
+        "price": "7.00 €"
+    }
+]

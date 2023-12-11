@@ -1,0 +1,128 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: 'Lato', sans-serif;
+  background-color: var(--third);
+}
+
+/* CSS Forms Register and Product #######START##### */
+
+span {
+  color: rgba(185, 0, 0, 0.832);
+  font-size: 0.8rem;
+
+}
+
+.titleRegisterForm {
+  font-weight: 300;
+  color: var(--primary);
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.buttonForm {
+  height: 2.5rem;
+  border: none;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--secondary);
+  background-color: var(--primary);
+  cursor: pointer;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.errorMessage {
+  background-color: rgba(185, 0, 0, 0.832);
+  color: var(--third);
+  padding: .5rem;
+  margin-bottom: 1rem;
+}
+
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.inputfile + .labelFileInput {
+  width: 100%;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  padding: 0.625rem 1.25rem;
+}
+
+.inputfile-2 + .labelFileInput {
+  color: var(--primary);
+  border: 2px solid var(--primary);
+}
+
+.inputfile-2:focus + .labelFileInput,
+.inputfile-2.has-focus + .labelFileInput,
+.inputfile-2 + .labelFileInput:hover {
+  color: var(--primary);
+}
+
+/* CSS Forms Register and Product #######END##### */
+
+
+/* Footer START */
+
+footer {
+  width: 100vw;
+  height: 80px;
+  border-top: 4px solid var(--third);
+  background-color: var(--secondary);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 3rem;
+  color: var(--primary);
+  position: fixed;
+  bottom: 0;
+}
+
+img {
+  height: 70%;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+}
+
+footer button {
+  background-color: transparent;
+  border: none;
+  color: var(--primary);
+  display: inline-flex;
+  cursor: pointer;
+  font-size: 3rem;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+
+}
+
+/* Footer END */
