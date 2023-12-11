@@ -1,0 +1,6 @@
+[submodule "apiCocoa"]
+	path = apiCocoa
+	url = git@github.com:AlarconCode/apiCocoa.git
+[submodule "cocoaVercel"]
+	path = cocoaVercel
+	url = git@github.com:AlarconCode/cocoaVercel.git
