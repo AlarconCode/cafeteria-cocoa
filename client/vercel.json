@@ -1,12 +1,5 @@
 {
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "https://api-cafeteria-cocoa-torrijos.vercel.app/api/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
+  "rewrites": [
+      {"source": "/(.*)", "destination": "/"}
   ]
 }
