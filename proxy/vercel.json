@@ -1,6 +1,6 @@
 {
   "rewrites": [
-    { "source": "/api/:path*", "destination": "https://api-cafeteria-cocoa-torrijos.vercel.app/api/:path*" },
-    { "source": "/:path*", "destination": "https://front-cafeteria-cocoa-torrijos.vercel.app/:path*" }
+    { "source": "/api/:match*", "destination": "https://api-cafeteria-cocoa-torrijos.vercel.app/api/:match*" },
+    { "source": "/:match*", "destination": "https://front-cafeteria-cocoa-torrijos.vercel.app/:match*" }
   ]
 }
