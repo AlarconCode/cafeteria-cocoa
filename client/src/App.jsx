@@ -36,7 +36,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="desayunos" element={<ListCards category='Desayunos' />} />
             <Route path="cafes" element={<ListCards category='cafes' />} />
-            <Route path="reposteria" element={<ListCards category='reposteria' />} />
+            <Route path="reposteria" element={<ListCards category='Repostería Casera' />} />
             <Route path="comidas" element={<ListCards category='Comidas' />} /> 
             <Route path="bebidas" element={<ListCards category='Bebidas' />} />
             <Route path="crear-producto" element={<ProductFormPage />} />
