@@ -100,7 +100,7 @@ export const ProductForm = ({ ...props }) => {
           title: success, 
           timer: 2000, showConfirmButton: false});
           setTimeout(() => {
-            navigate(`/${values.cat}`);
+            navigate(`/${values.cat === 'Repostería Casera' ? 'reposteria' : values.cat}`);
           }, 2000);
         onSubmitProps.setSubmitting(false);
       }
