@@ -142,7 +142,7 @@ export const ProductForm = ({ ...props }) => {
                 <option>Elige una categoría</option>
                 <option value="Desayunos">Desayunos</option>
                 <option value="cafes">Cafes</option>
-                <option value="Repostería Casera">Repostería Casera</option>
+                <option value="Repostería">Repostería Casera</option>
                 <option value="Comidas">Comidas</option>
                 <option value="Bebidas">Bebidas</option>
               </Field>
