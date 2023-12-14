@@ -6,6 +6,8 @@ import { useProduct } from "../../context/ProductContext";
 import Swal from "sweetalert2";
 import { StyledForm, StyledInput } from "../LoginForm/LoginForm";
 import { string } from "prop-types";
+import styled from "styled-components";
+import { LuImagePlus as UploadImage } from "react-icons/lu";
 
 // Formulario con Componentes Formik Contexto
 export const ProductForm = ({ ...props }) => {
@@ -138,14 +140,14 @@ export const ProductForm = ({ ...props }) => {
           >
             <h1 className="titleRegisterForm">{props.title}</h1>
             <div className="form-control">
-              <Field as="select" name="cat" type="text">
+              <StyledSelect as="select" name="cat" type="text">
                 <option>Elige una categoría</option>
                 <option value="Desayunos">Desayunos</option>
                 <option value="cafes">Cafes</option>
                 <option value="reposteria">Repostería Casera</option>
                 <option value="Comidas">Comidas</option>
                 <option value="Bebidas">Bebidas</option>
-              </Field>
+              </StyledSelect>
               <ErrorMessage name="cat" component="span" />
             </div>
             <div className="form-control">
@@ -164,8 +166,10 @@ export const ProductForm = ({ ...props }) => {
               <StyledInput name="price" type="number" placeholder="Precio" />
               <ErrorMessage name="price" component="span" />
             </div>
-            <div className="form-control">
-              <input
+            <div className="form-control uploadFile">
+              <UploadImage />
+              <p className="text-uploadFile">Añade una imagen</p>
+              <StyledInputFile
                 type="file"
                 name="img"
                 onChange={(e) => formik.setFieldValue("img", e.target.files[0])}
@@ -194,3 +198,48 @@ export const ProductForm = ({ ...props }) => {
 ProductForm.propTypes = {
   title: string,
 };
+
+const StyledSelect = styled(Field)`
+  display: block;
+  width: 100%;
+  height: 3rem;
+  border: 2px solid var(--primary);
+  padding: 0.5rem;
+  font-size: 1rem;
+  font-family: var(--font);
+  color: var(--primary);
+  background-color: var(--secondary);
+  outline: none;
+  transition: var(--transition);
+
+  &:focus {
+    border-color: var(--primary);
+    box-shadow: var(--shadow);
+  }
+`
+
+const StyledInputFile = styled.input`
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--primary);
+  padding: 0.5rem;
+  font-size: 1rem;
+  font-family: var(--font);
+  color: var(--primary);
+  background-color: var(--secondary);
+  outline: none;
+  transition: var(--transition);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  cursor: pointer;
+
+  &:focus {
+    border-color: var(--primary);
+    box-shadow: var(--shadow);
+  }
+`
