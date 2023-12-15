@@ -10,7 +10,7 @@ export const registerRequest = async (user) => {
 
   try {
 
-    const response = await fetch(`${url}/api/register`, options)
+    const response = await fetch(`/api/register`, options)
     const json = await response.json()
     console.log(json);
     return json
@@ -31,7 +31,7 @@ export const loginRequest = async (user) => {
 
   try {
 
-    const response = await fetch(`${url}/api/login`, options)
+    const response = await fetch(`/api/login`, options)
     const json = await response.json()
     console.log(json);
     return json
@@ -57,7 +57,7 @@ export const logoutRequest = async () => {
 
   try {
 
-    const response = await fetch(`${url}/api/logout`, options)
+    const response = await fetch(`/api/logout`, options)
     const json = await response.json()
     return json
 
@@ -79,7 +79,7 @@ export const isAuthRequest = async () => {
 
   try {
 
-    const response = await fetch(`${url}/api/verify-token`, options)
+    const response = await fetch(`/api/verify-token`, options)
     const json = await response.json()
 
     if (json.error === true) {

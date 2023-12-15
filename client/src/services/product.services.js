@@ -5,7 +5,7 @@ export const getProductRequest = async (id) => {
 
   try {
     
-    const res = await fetch(`${url}/api/product/${id}`)
+    const res = await fetch(`/api/product/${id}`)
     const data = await res.json()    
     return data
 
@@ -19,7 +19,7 @@ export const getProductsRequest = async (cat) => {
 
   try {
     
-    const res = await fetch(`${url}/api/products/${cat}`)
+    const res = await fetch(`/api/products/${cat}`)
     const data = await res.json()    
     return data
 
@@ -38,7 +38,7 @@ export const createProductRequest = async (product) => {
   }
 
   try {
-    const res = await fetch(`${url}/api/product`, options)
+    const res = await fetch(`/api/product`, options)
     const data = await res.json()
     return data
 
@@ -57,7 +57,7 @@ export const updateProductRequest = async (product) => {
   }
 
   try {
-    const res = await fetch(`${url}/api/product/${product.get('_id')}`, options)
+    const res = await fetch(`/api/product/${product.get('_id')}`, options)
     const data = await res.json()
     return data
 
@@ -79,7 +79,7 @@ export const deleteProductRequest = async (id) => {
 
   try {
     
-    const res = await fetch(`${url}/api/product/${id}`, options)
+    const res = await fetch(`/api/product/${id}`, options)
     const data = await res.json()
     return data
 
@@ -98,7 +98,7 @@ export const uploadImageRequest = async (file) => {
 
   try {
     
-    const res = await fetch(`${url}/api/upload`, options)
+    const res = await fetch(`/api/upload`, options)
     const data = await res.json()
     return data
 
