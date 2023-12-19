@@ -1,8 +1,7 @@
-
 const url_local = import.meta.env.VITE_BASE_URL_LOCAL
 const url_production = import.meta.env.VITE_BASE_URL_PRODUCTION
 
-if (process.env.NODE_ENV === 'production') {
+if (import.meta.env.VITE_NODE_ENV === 'production') {
   var url = url_production
 } else {
   var url = url_local
