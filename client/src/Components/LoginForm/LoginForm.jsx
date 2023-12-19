@@ -15,14 +15,32 @@ const validationSchema = Yup.object({
   email: Yup.string()
     .email("Introduce un email válido")
     .required("Campo requerido"),
-  password: Yup.string()
-    .min(8, "La contraseña debe tener 8 caracteres")
-    .matches(/[0-9]/, "El Password requiere a número")
-    .matches(/[a-z]/, "El Password requiere una minúscula")
-    .matches(/[A-Z]/, "El Password requiere una mayúscula")
-    .matches(/[^\w]/, "El Password requiere un symbol")
-    .matches(/^\S*$/, "No se permiten espacios en blanco")
-    .required("Campo requerido"),
+    password: Yup.string()
+    .test('password', 'El Password requiere 8 caracteres, un número, una minúscula, una mayúscula, un símbolo y no se permiten espacios en blanco', value => {
+      let errors = [];
+      if (!/(?=.*[0-9])/.test(value)) {
+        errors.push(" un número");
+      }
+      if (!/(?=.*[a-z])/.test(value)) {
+        errors.push(" una minúscula");
+      }
+      if (!/(?=.*[A-Z])/.test(value)) {
+        errors.push(" una mayúscula");
+      }
+      if (!/(?=.*[^\w])/.test(value)) {
+        errors.push(" un símbolo");
+      }
+      if (/\s/.test(value)) {
+        errors.push(" no se permiten espacios en blanco");
+      }
+      if (value && value.length < 8) {
+        errors.push(" 8 caracteres");
+      }
+      if (/\s/.test(value)) {
+        return new Yup.ValidationError("No se permiten espacios en blanco", null, "password");
+      }
+      return errors.length === 0 ? true : new Yup.ValidationError("El Password requiere" + errors.join(","), null, "password");
+    })
 });
 
 // Formulario con Componentes Formik Contexto

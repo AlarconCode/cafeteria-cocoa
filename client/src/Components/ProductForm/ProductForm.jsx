@@ -218,7 +218,7 @@ const StyledSelect = styled(Field)`
   }
 `
 
-const StyledInputFile = styled.input`
+export const StyledInputFile = styled.input`
   display: block;
   width: 100%;
   height: 100%;

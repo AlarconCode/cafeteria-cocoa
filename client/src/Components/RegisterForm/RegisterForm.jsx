@@ -4,6 +4,8 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import * as Yup from 'yup';
 import {StyledForm, StyledInput} from '../LoginForm/LoginForm'
+import { StyledInputFile } from '../ProductForm/ProductForm'
+import { LuImagePlus as UploadImage } from "react-icons/lu";
 
 const initialValues = {
   name: '',
@@ -16,13 +18,31 @@ const validationSchema = Yup.object({
   name: Yup.string().min(3,'Debe tener mas de 3 caracteres').required('Introduce un nombre'),
   email: Yup.string().email('Introduce un email válido').required('Introduce un email'),
   password: Yup.string()
-    .min(8, 'La contraseña debe tener 8 caracteres')
-    .matches(/[0-9]/, 'El Password requiere a número')
-    .matches(/[a-z]/, 'El Password requiere una minúscula')
-    .matches(/[A-Z]/, 'El Password requiere una mayúscula')
-    .matches(/[^\w]/, 'El Password requiere un symbol')
-    .matches(/^\S*$/, 'No se permiten espacios en blanco')
-    .required('Campo requerido')
+  .test('password', 'El Password requiere 8 caracteres, un número, una minúscula, una mayúscula, un símbolo y no se permiten espacios en blanco', value => {
+    let errors = [];
+    if (!/(?=.*[0-9])/.test(value)) {
+      errors.push(" un número");
+    }
+    if (!/(?=.*[a-z])/.test(value)) {
+      errors.push(" una minúscula");
+    }
+    if (!/(?=.*[A-Z])/.test(value)) {
+      errors.push(" una mayúscula");
+    }
+    if (!/(?=.*[^\w])/.test(value)) {
+      errors.push(" un símbolo");
+    }
+    if (/\s/.test(value)) {
+      errors.push(" no se permiten espacios en blanco");
+    }
+    if (value && value.length < 8) {
+      errors.push(" 8 caracteres");
+    }
+    if (/\s/.test(value)) {
+      return new Yup.ValidationError("No se permiten espacios en blanco", null, "password");
+    }
+    return errors.length === 0 ? true : new Yup.ValidationError("El Password requiere" + errors.join(","), null, "password");
+  })
 })
 
 
@@ -54,8 +74,10 @@ export const RegisterForm = () => {
       validationSchema={validationSchema}
       onSubmit={onSubmit}
     >
-      {formik => (
-        <StyledForm onSubmit={formik.handleSubmit}>
+      {(formik) => {
+        console.log(formik.errors.password)
+        return (
+          <StyledForm onSubmit={formik.handleSubmit}>
           <h1 className="titleRegisterForm">Registro</h1>
           {error
             ? error.map((message, index) => (
@@ -74,15 +96,22 @@ export const RegisterForm = () => {
           </div>
           <div className="form-control">
             <StyledInput name='password' type='password' placeholder='password' />
-            <ErrorMessage name="password" component='span' />
+            { formik.touched.password && formik.errors.password ? (
+              <ErrorMessage name="password" component='span' />
+            ) : null }
           </div>
-          <div className="form-control">
-            <Field name='img' type='file'/>
-            <ErrorMessage name="img" component='span' />
+          <div className="form-control uploadFile">
+            <UploadImage />
+            <p className="text-uploadFile">Añade una imagen</p>
+            <StyledInputFile
+              type="file"
+              name="img"
+              onChange={(e) => formik.setFieldValue("img", e.target.files[0])}
+          />
           </div>
           <button type="submit" className="buttonForm">Enviar</button>
       </StyledForm>
-      )}
+      )}}
     </Formik> 
   )
 
