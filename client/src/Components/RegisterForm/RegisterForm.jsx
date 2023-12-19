@@ -75,7 +75,7 @@ export const RegisterForm = () => {
       onSubmit={onSubmit}
     >
       {(formik) => {
-        console.log(formik.errors.password)
+        // console.log(formik)
         return (
           <StyledForm onSubmit={formik.handleSubmit}>
           <h1 className="titleRegisterForm">Registro</h1>

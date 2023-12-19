@@ -147,6 +147,26 @@ export const StyledForm = styled.form`
     color: var(--primary);
     margin-bottom: 5px;
   }
+
+  select {
+    display: block;
+    width: 100%;
+    height: 3rem;
+    border: 2px solid var(--primary);
+    padding: 0.5rem;
+    font-size: 1rem;
+    font-family: var(--font);
+    color: var(--primary);
+    background-color: var(--secondary);
+    outline: none;
+    transition: var(--transition);
+
+    &:focus {
+      border-color: var(--primary);
+      box-shadow: var(--shadow);
+    }
+  }
+
 `;
 
 export const StyledInput = styled(Field)`

@@ -16,19 +16,13 @@ export const ProductForm = ({ ...props }) => {
   const params = useParams();
   const navigate = useNavigate();
 
-  const initialValues = {
-    cat: "",
-    desc: "",
-    ingredientes: "",
-    price: "",
-    img: null,
-  };
-
   const validationSchema = Yup.object({
-    cat: Yup.string().required("Campo requerido"),
-    desc: Yup.string().max(120, "Debe tener menos caracteres"),
+    cat: Yup.string()
+        .required("Campo requerido")
+        .notOneOf([""], "Por favor, elige una categoría"),
+    desc: Yup.string().max(120, "Debe tener menos caracteres").required("Campo requerido"),
     ingredientes: Yup.string().max(120, "Debe tener menos caracteres"),
-    
+    price: Yup.number().positive("Debe ser un número positivo").required("Campo requerido"),
     
   });
   
@@ -82,7 +76,7 @@ export const ProductForm = ({ ...props }) => {
     formData.append("img", values.img);
     
     Swal.fire({
-      title: "¿Desea Actualizar el producto?",
+      title: "¿Desea Actualizar el Producto?",
       icon: "info",
       confirmButtonColor: "green",
       confirmButtonText: "Aceptar",
@@ -122,7 +116,17 @@ export const ProductForm = ({ ...props }) => {
     getUpdateProduct();
   }, [params.id, getSingleProduct]);
 
+  const initialValues = {
+    cat: "",
+    desc: "",
+    ingredientes: "",
+    price: "",
+    img: null,
+  };
+
+
   return (
+    
     <Formik
       initialValues={values || initialValues}
       validationSchema={validationSchema}
@@ -131,7 +135,7 @@ export const ProductForm = ({ ...props }) => {
       isSubmitting={false}
     >
       {(formik) => {
-        // console.log('formikProps', formik)
+        console.log('formikProps', formik)
         // console.log(formik.values);
         return (
           <StyledForm
@@ -140,14 +144,14 @@ export const ProductForm = ({ ...props }) => {
           >
             <h1 className="titleRegisterForm">{props.title}</h1>
             <div className="form-control">
-              <StyledSelect as="select" name="cat" type="text">
-                <option>Elige una categoría</option>
+              <Field as="select" name="cat" type="text">
+                <option value="">Elige una categoría</option>
                 <option value="Desayunos">Desayunos</option>
                 <option value="cafes">Cafes</option>
                 <option value="reposteria">Repostería Casera</option>
                 <option value="Comidas">Comidas</option>
                 <option value="Bebidas">Bebidas</option>
-              </StyledSelect>
+              </Field>
               <ErrorMessage name="cat" component="span" />
             </div>
             <div className="form-control">
@@ -199,7 +203,7 @@ ProductForm.propTypes = {
   title: string,
 };
 
-const StyledSelect = styled(Field)`
+const StyledSelect = styled.select`
   display: block;
   width: 100%;
   height: 3rem;

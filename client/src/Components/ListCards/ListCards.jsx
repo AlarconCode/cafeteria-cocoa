@@ -31,7 +31,7 @@ function ListCards(props) {
   const deleteProductIcon = (id) => {
     Swal.fire({
       icon: "info",
-      text: "¿Eliminar?",
+      title: "¿Desea Eliminar Producto?",
       confirmButtonText: "Aceptar",
       denyButtonText: "Cancelar",
       confirmButtonColor: "green",
