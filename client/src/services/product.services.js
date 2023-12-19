@@ -1,11 +1,18 @@
 
-const url = import.meta.env.VITE_BASE_URL
+const url_local = import.meta.env.VITE_BASE_URL_LOCAL
+const url_production = import.meta.env.VITE_BASE_URL_PRODUCTION
+
+if (process.env.NODE_ENV === 'production') {
+  var url = url_production
+} else {
+  var url = url_local
+}
 
 export const getProductRequest = async (id) => {
 
   try {
     
-    const res = await fetch(`/api/product/${id}`)
+    const res = await fetch(`${url}product/${id}`)
     const data = await res.json()    
     return data
 
@@ -19,7 +26,7 @@ export const getProductsRequest = async (cat) => {
 
   try {
     
-    const res = await fetch(`/api/products/${cat}`)
+    const res = await fetch(`${url}products/${cat}`)
     const data = await res.json()    
     return data
 
@@ -38,7 +45,7 @@ export const createProductRequest = async (product) => {
   }
 
   try {
-    const res = await fetch(`/api/product`, options)
+    const res = await fetch(`${url}product`, options)
     const data = await res.json()
     return data
 
@@ -57,7 +64,7 @@ export const updateProductRequest = async (product) => {
   }
 
   try {
-    const res = await fetch(`/api/product/${product.get('_id')}`, options)
+    const res = await fetch(`${url}product/${product.get('_id')}`, options)
     const data = await res.json()
     return data
 
@@ -79,7 +86,7 @@ export const deleteProductRequest = async (id) => {
 
   try {
     
-    const res = await fetch(`/api/product/${id}`, options)
+    const res = await fetch(`${url}product/${id}`, options)
     const data = await res.json()
     return data
 
@@ -98,7 +105,7 @@ export const uploadImageRequest = async (file) => {
 
   try {
     
-    const res = await fetch(`/api/upload`, options)
+    const res = await fetch(`${url}upload`, options)
     const data = await res.json()
     return data
 

@@ -1,4 +1,12 @@
-const url = import.meta.env.VITE_BASE_URL
+const url_local = import.meta.env.VITE_BASE_URL_LOCAL
+const url_production = import.meta.env.VITE_BASE_URL_PRODUCTION
+
+if (process.env.NODE_ENV === 'production') {
+  var url = url_production
+} else {
+  var url = url_local
+}
+
 console.log(url);
 
 export const registerRequest = async (user) => {
@@ -10,7 +18,7 @@ export const registerRequest = async (user) => {
 
   try {
 
-    const response = await fetch(`/api/register`, options)
+    const response = await fetch(`${url}register`, options)
     const json = await response.json()
     console.log(json);
     return json
@@ -31,7 +39,7 @@ export const loginRequest = async (user) => {
 
   try {
 
-    const response = await fetch(`/api/login`, options)
+    const response = await fetch(`${url}login`, options)
     const json = await response.json()
     console.log(json);
     return json
@@ -57,7 +65,7 @@ export const logoutRequest = async () => {
 
   try {
 
-    const response = await fetch(`/api/logout`, options)
+    const response = await fetch(`${url}logout`, options)
     const json = await response.json()
     return json
 
@@ -79,7 +87,7 @@ export const isAuthRequest = async () => {
 
   try {
 
-    const response = await fetch(`/api/verify-token`, options)
+    const response = await fetch(`${url}verify-token`, options)
     const json = await response.json()
 
     if (json.error === true) {
