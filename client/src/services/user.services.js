@@ -1,6 +1,7 @@
 const url_local = import.meta.env.VITE_BASE_URL_LOCAL
 const url_production = import.meta.env.VITE_BASE_URL_PRODUCTION
 const NODE_ENV = import.meta.env.VITE_NODE_ENV
+console.log(NODE_ENV);
 
 if (NODE_ENV !== 'production') {
   var url = url_local
