@@ -36,26 +36,26 @@ export const ProductForm = ({ ...props }) => {
     formData.append("img", values.img);
 
     Swal.fire({
-      title: `Añadir ${values.desc}`,
+      title: `¿Desea añadir ${values.desc}?`,
       icon: "info",
-      confirmButtonColor: "green",
       confirmButtonText: "Aceptar",
-      showCancelButton: true,
+      confirmButtonColor: "#7FABC2",
       cancelButtonText: "Cancelar",
-      cancelButtonColor: "red",
+      cancelButtonColor: "#502C1E",
+      showCancelButton: true,
     }).then((res) => {
-      createProduct(formData);
       if (errors && errors.length > 0 || errors[0] === "jwt must be provided") {
         Swal.fire({ icon: "error", title: "Error", text: errors.join('\n') });
         setErrors([]);
         onSubmitProps.setSubmitting(false);
-      } else if (errors.length === 0) {
+      } else if (errors.length === 0 && res.isConfirmed) {
         Swal.fire({
           icon: "success",
-          title: `${values.desc} Actualizada`,
+          title: `${values.desc} Creado`,
           timer: 2000,
           showConfirmButton: false,
         });
+        createProduct(formData);
         setTimeout(() => {
           navigate(`/${values.cat === 'Repostería Casera' ? 'reposteria' : values.cat}`);
         }, 2000);
@@ -76,24 +76,24 @@ export const ProductForm = ({ ...props }) => {
     formData.append("img", values.img);
     
     Swal.fire({
-      title: "¿Desea Actualizar el Producto?",
+      title: `¿Desea actualizar ${values.desc}?`,
       icon: "info",
-      confirmButtonColor: "green",
       confirmButtonText: "Aceptar",
-      showCancelButton: true,
+      confirmButtonColor: "#7FABC2",
       cancelButtonText: "Cancelar",
-      cancelButtonColor: "red",
+      cancelButtonColor: "#502C1E",
+      showCancelButton: true,
     }).then((res) => {
-      updateProduct(formData)
       if (res.isConfirmed && errors.length > 0) {
         Swal.fire({ icon: "error", title: "Error", text: errors.join('\n') });
         setErrors([]);
         onSubmitProps.setSubmitting(false);
         return
       } else if (res.isConfirmed && errors.length === 0) { 
+        updateProduct(formData)
         Swal.fire({ 
           icon: "success", 
-          title: success, 
+          title:`${values.desc} Actualizado`, 
           timer: 2000, showConfirmButton: false});
           setTimeout(() => {
             navigate(`/${values.cat === 'Repostería Casera' ? 'reposteria' : values.cat}`);

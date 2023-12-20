@@ -28,15 +28,15 @@ function ListCards(props) {
     products();
   }, [category, getProducts]);
 
-  const deleteProductIcon = (id) => {
+  const deleteProductIcon = (id, desc) => {
     Swal.fire({
       icon: "info",
-      title: "¿Desea Eliminar Producto?",
+      title: `¿Desea eliminar el ${desc}?`,
       confirmButtonText: "Aceptar",
-      denyButtonText: "Cancelar",
-      confirmButtonColor: "green",
-      denyButtonColor: "red",
-      showDenyButton: true,
+      confirmButtonColor: "#7FABC2",
+      cancelButtonText: "Cancelar",
+      cancelButtonColor: "#502C1E",
+      showCancelButton: true,
     }).then((res) => {
       if (res.isConfirmed) {
         deleteProduct(id).then((res) => {
@@ -45,14 +45,14 @@ function ListCards(props) {
             setProductList(newList);
             Swal.fire({
               icon: "info",
-              title: "¡Eliminado!",
+              title: `${desc} eliminado`,
               showConfirmButton: false,
               timer: 2000,
             });
           } else {
             Swal.fire({
               icon: "error",
-              title: "No se encuentra",
+              title: `${desc} no se ha podido eliminar`,
               showConfirmButton: false,
               timer: 2000,
             });
@@ -86,7 +86,7 @@ function ListCards(props) {
             key={product._id}
             index={index}
             deleteCard={() => {
-              deleteProductIcon(product._id);
+              deleteProductIcon(product._id, product.desc);
             }}
           />
         ))}
