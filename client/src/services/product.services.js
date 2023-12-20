@@ -1,13 +1,14 @@
 const url_local = import.meta.env.VITE_BASE_URL_LOCAL
 const url_production = import.meta.env.VITE_BASE_URL_PRODUCTION
+const NODE_ENV = import.meta.env.VITE_NODE_ENV
 
-// if (import.meta.env.VITE_NODE_ENV === 'production') {
-//   var url = url_production
-// } else {
-//   var url = url_local
-// }
+if (NODE_ENV !== 'production') {
+  var url = url_local
+} else {
+  var url = url_production
+}
 
-const url = '/api/'
+// const url = '/api/'
 
 export const getProductRequest = async (id) => {
 
