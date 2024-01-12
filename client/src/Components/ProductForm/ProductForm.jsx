@@ -8,10 +8,12 @@ import { StyledForm, StyledInput } from "../LoginForm/LoginForm";
 import { string } from "prop-types";
 import styled from "styled-components";
 import { LuImagePlus as UploadImage } from "react-icons/lu";
+import { FaRegTrashCan as DeleteIcon } from "react-icons/fa6";
 
 // Formulario con Componentes Formik Contexto
 export const ProductForm = ({ ...props }) => {
   const [values, setValues] = useState(null);
+  const [previewImage, setPreviewImage] = useState(null);
   const {createProduct, getSingleProduct, updateProduct, errors, setErrors, success } = useProduct();
   const params = useParams();
   const navigate = useNavigate();
@@ -135,7 +137,7 @@ export const ProductForm = ({ ...props }) => {
       isSubmitting={false}
     >
       {(formik) => {
-        console.log('formikProps', formik)
+        // console.log('formikProps', formik)
         // console.log(formik.values);
         return (
           <StyledForm
@@ -170,13 +172,21 @@ export const ProductForm = ({ ...props }) => {
               <StyledInput name="price" type="number" placeholder="Precio" />
               <ErrorMessage name="price" component="span" />
             </div>
+              {previewImage && (<DeleteIcon className="deleteIcon" onClick={() => setPreviewImage(null)} />)}
             <div className="form-control uploadFile">
+              <img src={previewImage} alt="" />
               <UploadImage />
               <p className="text-uploadFile">Añade una imagen</p>
               <StyledInputFile
                 type="file"
                 name="img"
-                onChange={(e) => formik.setFieldValue("img", e.target.files[0])}
+                onChange={(e) => {
+                  formik.setFieldValue("img", e.target.files[0])
+                  setPreviewImage(URL.createObjectURL(e.target.files[0]))
+                  console.log(e.target.files[0])
+                  console.log(URL.createObjectURL(e.target.files[0]))
+                }
+              }
               />
               <ErrorMessage name="img" component="span" />
             </div>
@@ -224,8 +234,9 @@ const StyledSelect = styled.select`
 
 export const StyledInputFile = styled.input`
   display: block;
-  width: 100%;
+  width: 70%;
   height: 100%;
+  float: right;
   border: 2px solid var(--primary);
   padding: 0.5rem;
   font-size: 1rem;
