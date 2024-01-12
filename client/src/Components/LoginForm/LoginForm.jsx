@@ -167,6 +167,11 @@ export const StyledForm = styled.form`
     }
   }
 
+  .deleteIcon {
+    color: var(--primary);
+    cursor: pointer;
+  }
+
 `;
 
 export const StyledInput = styled(Field)`
