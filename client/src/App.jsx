@@ -34,7 +34,8 @@ function App() {
           <Header />
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="desayunos" element={<ListCards category='Desayunos' />} />
+            <Route path="desayunos-basicos" element={<ListCards category='Desayunos Básicos' />} />
+            <Route path="desayunos-completos" element={<ListCards category='Desayunos Completos' />} />
             <Route path="cafes" element={<ListCards category='Cafés' />} />
             <Route path="reposteria" element={<ListCards category='Repostería Casera' />} />
             <Route path="comidas" element={<ListCards category='Comidas' />} /> 

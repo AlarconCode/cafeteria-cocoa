@@ -71,8 +71,13 @@ function Header() {
       <ContainerMenu $isOpen={isOpen}>
         <Menu className="list-items">
           <li>
-            <Link to="/desayunos" className="menu-item">
-              Desayunos
+            <Link to="/desayunos-basicos" className="menu-item">
+              Desayunos Básicos
+            </Link>
+          </li>
+          <li>
+            <Link to="/desayunos-completos" className="menu-item">
+              Desayunos Completos
             </Link>
           </li>
           <li>
