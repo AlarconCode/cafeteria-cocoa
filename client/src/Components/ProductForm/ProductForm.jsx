@@ -4,11 +4,12 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useProduct } from "../../context/ProductContext";
 import Swal from "sweetalert2";
-import { StyledForm, StyledInput } from "../LoginForm/LoginForm";
+import { StyledForm, StyledInput, Wrapper } from "../LoginForm/LoginForm";
 import { string } from "prop-types";
 import styled from "styled-components";
 import { LuImagePlus as UploadImage } from "react-icons/lu";
 import { FaRegTrashCan as DeleteIcon } from "react-icons/fa6";
+import logoCocoa from "../../assets/icons/taza-cocoa-marron.svg";
 
 // Formulario con Componentes Formik Contexto
 export const ProductForm = ({ ...props }) => {
@@ -98,7 +99,7 @@ export const ProductForm = ({ ...props }) => {
           title:`${values.desc} Actualizado`, 
           timer: 2000, showConfirmButton: false});
           setTimeout(() => {
-            navigate(`/${values.cat === 'Repostería Casera' ? 'reposteria' : values.cat}`);
+            navigate(-1);
           }, 2000);
         onSubmitProps.setSubmitting(false);
       }
@@ -123,7 +124,7 @@ export const ProductForm = ({ ...props }) => {
     desc: "",
     ingredientes: "",
     price: "",
-    img: null,
+    img: null
   };
 
 
@@ -138,71 +139,79 @@ export const ProductForm = ({ ...props }) => {
     >
       {(formik) => {
         // console.log('formikProps', formik)
-        // console.log(formik.values);
+        console.log(formik.values);
         return (
-          <StyledForm
-            onSubmit={formik.handleSubmit}
-            encType="multipart/form-data"
-          >
-            <h1 className="titleRegisterForm">{props.title}</h1>
-            <div className="form-control">
-              <Field as="select" name="cat" type="text">
-                <option value="">Elige una categoría</option>
-                <option value="Desayunos">Desayunos</option>
-                <option value="cafes">Cafes</option>
-                <option value="reposteria">Repostería Casera</option>
-                <option value="Comidas">Comidas</option>
-                <option value="Bebidas">Bebidas</option>
-              </Field>
-              <ErrorMessage name="cat" component="span" />
-            </div>
-            <div className="form-control">
-              <StyledInput name="desc" type="text" placeholder="Descripción" />
-              <ErrorMessage name="desc" component="span" />
-            </div>
-            <div className="form-control">
-              <StyledInput
-                name="ingredientes"
-                type="text"
-                placeholder="Ingredientes"
-              />
-              <ErrorMessage name="ingredientes" component="span" />
-            </div>
-            <div className="form-control">
-              <StyledInput name="price" type="number" placeholder="Precio" />
-              <ErrorMessage name="price" component="span" />
-            </div>
-              {previewImage && (<DeleteIcon className="deleteIcon" onClick={() => setPreviewImage(null)} />)}
-            <div className="form-control uploadFile">
-              <img src={previewImage} alt="" />
-              <UploadImage />
-              <p className="text-uploadFile">Añade una imagen</p>
-              <StyledInputFile
-                type="file"
-                name="img"
-                onChange={(e) => {
-                  formik.setFieldValue("img", e.target.files[0])
-                  setPreviewImage(URL.createObjectURL(e.target.files[0]))
-                  console.log(e.target.files[0])
-                  console.log(URL.createObjectURL(e.target.files[0]))
-                }
-              }
-              />
-              <ErrorMessage name="img" component="span" />
-            </div>
-            <button
-              type="submit"
-              disabled={!formik.isValid || formik.isSubmitting}
-              style={
-                !formik.isValid || formik.isSubmitting
-                  ? { opacity: 0.5 }
-                  : { opacity: 1 }
-              }
-              className="buttonForm"
+          <Wrapper>
+            <StyledForm
+              onSubmit={formik.handleSubmit}
+              encType="multipart/form-data"
             >
-              Guardar
-            </button>
-          </StyledForm>
+              <h1 className="titleRegisterForm">{props.title}</h1>
+              <div className="form-control">
+                <Field as="select" name="cat" type="text">
+                  <option value="">Elige una categoría</option>
+                  <option value="Desayunos">Desayunos</option>
+                  <option value="cafes">Cafes</option>
+                  <option value="reposteria">Repostería Casera</option>
+                  <option value="Comidas">Comidas</option>
+                  <option value="Bebidas">Bebidas</option>
+                </Field>
+                <ErrorMessage name="cat" component="span" />
+              </div>
+              <div className="form-control">
+                <StyledInput name="desc" type="text" placeholder="Descripción" />
+                <ErrorMessage name="desc" component="span" />
+              </div>
+              <div className="form-control">
+                <StyledInput
+                  name="ingredientes"
+                  type="text"
+                  placeholder="Ingredientes"
+                />
+                <ErrorMessage name="ingredientes" component="span" />
+              </div>
+              <div className="form-control">
+                <StyledInput name="price" type="number" placeholder="Precio" />
+                <ErrorMessage name="price" component="span" />
+              </div>
+              <ImgDiv>
+                <figure>
+                  <img src={previewImage ? previewImage : formik.values.img} alt="" />
+                </figure>
+              {previewImage && (<DeleteIcon className="deleteIcon" onClick={() => setPreviewImage(null)} />)}
+              {formik.values.img && (<DeleteIcon className="deleteIcon" onClick={() =>  formik.setFieldValue("img", '')} />)}
+              </ImgDiv>
+              {previewImage === null && (
+                <div className="form-control uploadFile">
+                <UploadImage />
+                <p className="text-uploadFile">Añade una imagen</p>
+                <StyledInputFile
+                  type="file"
+                  name="img"
+                  onChange={(e) => {
+                    formik.setFieldValue("img", e.target.files[0])
+                    setPreviewImage(URL.createObjectURL(e.target.files[0]))
+                    console.log(e.target.files[0])
+                    console.log(URL.createObjectURL(e.target.files[0]))
+                  }
+                }
+                />
+                <ErrorMessage name="img" component="span" />
+              </div>)}
+              <button
+                type="submit"
+                disabled={!formik.isValid || formik.isSubmitting}
+                style={
+                  !formik.isValid || formik.isSubmitting
+                    ? { opacity: 0.5 }
+                    : { opacity: 1 }
+                }
+                className="buttonForm"
+              >
+                Guardar
+              </button>
+            </StyledForm>
+          </Wrapper>
         );
       }}
     </Formik>
@@ -256,5 +265,38 @@ export const StyledInputFile = styled.input`
   &:focus {
     border-color: var(--primary);
     box-shadow: var(--shadow);
+  }
+`
+
+const ImgDiv = styled.div`
+  position: relative;
+  width: 75vw;
+  max-width: 350px;
+  margin-bottom: 1rem;
+  border: 2px solid var(--primary);
+
+  .deleteIcon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: var(--third);
+    font-size: 1rem;
+    cursor: pointer;
+  
+  }
+  
+  figure {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  
   }
 `

@@ -74,46 +74,60 @@ export const LoginForm = () => {
       onSubmit={onSubmit}
     >
       {(formik) => (
-        <StyledForm onSubmit={formik.handleSubmit}>
-          <h1 className="titleRegisterForm">Login</h1>
-          {error
-            ? error.map((message, index) => (
-                <div key={index} className="errorMessage">
-                  {message}
-                </div>
-              ))
-            : null}
-          <div className="form-control">
-            <StyledInput name="email" type="email" placeholder="Email" />
-            <ErrorMessage name="email" component="span" />
-          </div>
-          <div className="form-control">
-            <StyledInput
-              name="password"
-              type="password"
-              placeholder="Password"
-            />
-            <ErrorMessage name="password" component="span" />
-          </div>
-          <button type="submit" className="buttonForm">
-            Entrar
-          </button>
-          <p>
-            ¿No tienes cuenta? <Link to="/registro">Regístrate</Link>
-          </p>
-        </StyledForm>
+        <Wrapper>
+          <StyledForm onSubmit={formik.handleSubmit}>
+            <h1 className="titleRegisterForm">Login</h1>
+            {error
+              ? error.map((message, index) => (
+                  <div key={index} className="errorMessage">
+                    {message}
+                  </div>
+                ))
+              : null}
+            <div className="form-control">
+              <StyledInput name="email" type="email" placeholder="Email" />
+              <ErrorMessage name="email" component="span" />
+            </div>
+            <div className="form-control">
+              <StyledInput
+                name="password"
+                type="password"
+                placeholder="Password"
+              />
+              <ErrorMessage name="password" component="span" />
+            </div>
+            <button type="submit" className="buttonForm">
+              Entrar
+            </button>
+            <p>
+              ¿No tienes cuenta? <Link to="/registro">Regístrate</Link>
+            </p>
+          </StyledForm>
+        </Wrapper>
       )}
     </Formik>
   );
 };
 
-export const StyledForm = styled.form`
+export const Wrapper = styled.section`
   background-color: var(--secondary);
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
+  padding-top: 160px;
+  padding-bottom: 160px;
   display: grid;
   place-content: center;
-  row-gap: 0.5rem;
+  
+`
+
+export const StyledForm = styled.form`
+
+  .titleRegisterForm {
+    font-size: 2rem;
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 1rem;
+  }
 
   .form-control {
     width: 75vw;
@@ -170,6 +184,28 @@ export const StyledForm = styled.form`
   .deleteIcon {
     color: var(--primary);
     cursor: pointer;
+  }
+
+  .buttonForm {
+    display: block;
+    width: 100%;
+    height: 3rem;
+    background-color: var(--primary);
+    color: var(--secondary);
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+    &:hover {
+      background-color: var(--third);
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      transition: all 0.3s ease 0s;
+    }
+  
   }
 
 `;

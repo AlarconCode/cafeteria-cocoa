@@ -6,10 +6,16 @@ export const HomePage = () => {
   
   return (
     <section className={styles.container}>
-      <Link to='/desayunos'>
+      <Link to='/desayunos-basicos'>
         <div className={styles.link}>
           <img src={cup}/>
-          <h1>Desayunos</h1> 
+          <h1>Desayunos Básicos</h1> 
+        </div>
+      </Link>
+      <Link to='/desayunos-completos'>
+        <div className={styles.link}>
+          <img src={cup}/>
+          <h1>Desayunos Completos</h1> 
         </div>
       </Link>
       <Link to='/cafes'>
