@@ -60,7 +60,10 @@ export const ProductForm = ({ ...props }) => {
         });
         createProduct(formData);
         setTimeout(() => {
-          navigate(`/${values.cat === 'Repostería Casera' ? 'reposteria' : values.cat}`);
+          navigate(`/${values.cat === 'Repostería Casera' ? 'reposteria' :
+          values.cat === 'Desayunos Básicos' ? 'desayunos-basicos' :
+          values.cat === 'Desayunos Completos' ? 'desayunos-completos' :
+          values.cat === 'Cafes' ? 'cafes' : values.cat}`);
         }, 2000);
       }
       if (res.isDismissed) {
@@ -150,7 +153,8 @@ export const ProductForm = ({ ...props }) => {
               <div className="form-control">
                 <Field as="select" name="cat" type="text">
                   <option value="">Elige una categoría</option>
-                  <option value="Desayunos">Desayunos</option>
+                  <option value="Desayunos Básicos">Desayunos Básicos</option>
+                  <option value="Desayunos Completos">Desayunos Completos</option>
                   <option value="cafes">Cafes</option>
                   <option value="reposteria">Repostería Casera</option>
                   <option value="Comidas">Comidas</option>
@@ -176,28 +180,34 @@ export const ProductForm = ({ ...props }) => {
               </div>
               <ImgDiv>
                 <figure>
-                  <img src={previewImage ? previewImage : formik.values.img} alt="" />
+                  <img 
+                    src={formik.values.img || logoCocoa} 
+                    alt="" 
+                    onError= {(e) => {
+                      e.target.src = logoCocoa
+                    }}
+                    style={
+                      formik.values.img ? {opacity: 1 } : { opacity: .2 }
+                    }
+                  />
                 </figure>
-              {previewImage && (<DeleteIcon className="deleteIcon" onClick={() => setPreviewImage(null)} />)}
               {formik.values.img && (<DeleteIcon className="deleteIcon" onClick={() =>  formik.setFieldValue("img", '')} />)}
               </ImgDiv>
-              {previewImage === null && (
-                <div className="form-control uploadFile">
+              <div className="form-control uploadFile">
                 <UploadImage />
                 <p className="text-uploadFile">Añade una imagen</p>
                 <StyledInputFile
                   type="file"
                   name="img"
                   onChange={(e) => {
-                    formik.setFieldValue("img", e.target.files[0])
-                    setPreviewImage(URL.createObjectURL(e.target.files[0]))
+                    formik.setFieldValue("img", URL.createObjectURL(e.target.files[0]))
                     console.log(e.target.files[0])
                     console.log(URL.createObjectURL(e.target.files[0]))
                   }
                 }
                 />
                 <ErrorMessage name="img" component="span" />
-              </div>)}
+              </div>
               <button
                 type="submit"
                 disabled={!formik.isValid || formik.isSubmitting}
@@ -260,7 +270,6 @@ export const StyledInputFile = styled.input`
   right: 0;
   bottom: 0;
   opacity: 0;
-  cursor: pointer;
 
   &:focus {
     border-color: var(--primary);
@@ -274,13 +283,15 @@ const ImgDiv = styled.div`
   max-width: 350px;
   margin-bottom: 1rem;
   border: 2px solid var(--primary);
+  background-color: white;
 
   .deleteIcon {
+    background-color: var(--primary);
     position: absolute;
     top: 10px;
     right: 10px;
     color: var(--third);
-    font-size: 1rem;
+    font-size: 1.2rem;
     cursor: pointer;
   
   }
@@ -294,7 +305,7 @@ const ImgDiv = styled.div`
   
     img {
       width: 100%;
-      height: 100%;
+      max-height: 200px;
       object-fit: cover;
     }
   

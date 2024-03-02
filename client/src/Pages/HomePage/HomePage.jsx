@@ -5,7 +5,8 @@ import cup from '../../assets/icons/taza-cocoa-marron.svg'
 export const HomePage = () => {
   
   return (
-    <section className={styles.container}>
+    <div className={styles.wrapper}>
+      <section className={styles.container}>
       <Link to='/desayunos-basicos'>
         <div className={styles.link}>
           <img src={cup}/>
@@ -43,5 +44,6 @@ export const HomePage = () => {
         </div>
       </Link>
     </section>
+    </div>
   )
 }

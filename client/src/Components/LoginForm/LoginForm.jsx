@@ -135,7 +135,7 @@ export const StyledForm = styled.form`
     margin-bottom: 1rem;
   }
 
-  .form-control.uploadFile {
+  div.uploadFile {
     position: relative;
     border: 2px solid var(--primary);
     background-color: aliceblue;

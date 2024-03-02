@@ -101,7 +101,8 @@ export default ListCards;
 
 const Wrapper = styled.section`
 
-  width: 100vw;
+  width: 80vw;
+  margin: 0 auto;
   background-color: var(--third);
   padding: 2rem 2rem 8rem 2rem;
   color: var(--primary);
@@ -132,9 +133,9 @@ const Title = styled.div`
 
 const Section = styled.section`
   display: grid;
-  grid-template-columns: ${props => props.$primary ? null : "repeat(auto-fill, minmax(250px, 1fr))" };
+  grid-template-columns: ${props => props.$primary ? null : "repeat(auto-fill, minmax(350px, 1fr))" };
   place-content: ${props => props.$primary ? "center" : null};
-  gap: 1rem;
+  gap: 2rem;
 `;
 
 ListCards.propTypes = {
